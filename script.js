@@ -2,7 +2,6 @@ let currentDate = new Date().getTime()
 
 
 let url =`https://geoserver2.ymparisto.fi/geoserver/eo/wms?time=${currentDate}`
-let days = 0;
 /* function getData (){
   fetch(url).then(function(response) {//
     return response.text();
@@ -27,7 +26,7 @@ function reloadData() {
   wmsLayer.removeFrom(map)
   wmsLayer = L.tileLayer.wms(url, {
     layers: 'eo:EO_MR_VIIRS_LIE',
-    opacity: 0.57
+    opacity: input.value * 0.01
 }).addTo(map);
 }
 function addDays(amount) {
@@ -38,7 +37,13 @@ function addDays(amount) {
 
   reloadData()
 }
-
+const value = document.querySelector("#opacityValue")
+const input = document.querySelector("#opacity")
+value.textContent = input.value
+input.addEventListener("input", (event) =>{
+  value.textContent = event.target.value
+  console.log(input.value)
+})
 
 
 

@@ -1,6 +1,7 @@
 #map { height: 80vh; }
 #map { width: 80vh; }
 #map {margin-left: 40vh;}
+
 body{
     font-family: 'Courier New', Courier, monospace;
     background-color: rgb(150, 150, 150);
