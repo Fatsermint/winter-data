@@ -13,12 +13,16 @@
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
-    <h1>Snow</h1>
+    <h1>Snow
+    </h1>
+    <button onclick="reloadData()">Reload Data</button>
+    <input type="datetime-local" id="date" name="date" value="2025-27-11" min="2023-01-01" max="2025-12-31">
     <div id="map"></div>
-    <button id="me_when_id" onclick="addDays(-1)">breviousz Day</button>
-    <button id="fooba0" onclick="addDays(-30)">brewiouscz Month</button>
+    <button id="me_when_id" onclick="addDays(-1)">Previous Day</button>
+    <button id="fooba0" onclick="addDays(-30)">Previous Month</button>
     <button id="me_when_id." onclick="addDays(1)">Next Day</button>
     <button id="fooba1" onclick="addDays(30)">Next Month</button>
+    <div><p> Auto Reload<input type="checkbox" id="reloadAuto"></p></div>
     <div><p>Opacity: <input type="range" step="10" max="100" min="10" value="70" id="opacity" name="opacity"> <output id="opacityValue"></output></p></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="

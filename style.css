@@ -1,8 +1,15 @@
 #map { height: 80vh; }
 #map { width: 80vh; }
-#map {margin-left: 40vh;}
+#map{
+    display: flex;
+    place-content: center;
 
+}
 body{
     font-family: 'Courier New', Courier, monospace;
-    background-color: rgb(150, 150, 150);
+    background-color: rgb(255, 255, 255);
+    font: rgb(110, 0, 0);
+}
+h1{
+    font: white;
 }
