@@ -2,8 +2,10 @@
 #map { width: 100%; }
 
 body{
-    font: rgb(110, 0, 0);
     background: none;
+    z-index: 100;
+}
+h1{
     z-index: 100;
 }
 .leaflet-tile{
@@ -34,7 +36,7 @@ body,
     background-size: 30%;
     z-index: 120;
     -webkit-animation-name: MOVE-BG;
-    -webkit-animation-duration: 300s;
+    -webkit-animation-duration: 500s;
 
   }
 }
@@ -51,7 +53,7 @@ body {
     opacity: 0.8;
     top: -2500%;
     background-size: 60%;
-    animation-duration: 400s;
+    animation-duration: 300s;
   }
   &:after {
     filter: blur(2px);
