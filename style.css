@@ -1,14 +1,7 @@
-#map { height: 80vh; }
-#map { width: 80vh; }
-#map{
-    display: flex;
-    place-content: center;
+#map { height: 70em; }
+#map { width: 100%; }
 
-}
 body{
     background-color: rgb(255, 255, 255);
     font: rgb(110, 0, 0);
-}
-h1{
-    font: white;
 }

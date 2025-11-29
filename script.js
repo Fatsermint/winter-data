@@ -58,9 +58,9 @@ function addDays(amount) {
 }
 const value = document.querySelector("#opacityValue")
 const input = document.querySelector("#opacity")
-value.textContent = input.value
+value.innerHTML = input.value + "&nbsp;%"
 input.addEventListener("input", (event) => {
-  value.textContent = event.target.value
+  value.innerHTML = event.target.value + "&nbsp;%"
   wmsLayer.setOpacity(Number(input.value) * 0.01)
 });
 
