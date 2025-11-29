@@ -16,15 +16,15 @@
 </head>
 
 <body>
-
+    <div class="more-snow"></div>
     <div class="container">
-        <div class=" my-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded text-center">
+        <div class=" my-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded text-center" style="z-index: 1000;" >
             <h1>Winter Data</h1>
         </div>
         <div class="col" style="gap: 5%;">
 
 
-            <div class="row mb-2">
+            <div class="row mb-2"style="z-index: 1000;">
                 <div class="col">
                     <div class="dropdown" style="z-index: 1200;">
                         <button class=" btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown"
@@ -41,11 +41,11 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col" style="z-index: 1000;">
                     <button class="btn btn-success" onclick="reloadData()">Reload Data</button>
 
                 </div>
-                <div class="col">
+                <div class="col" style="z-index: 1000;">
                     Auto Reload
                     <div class="btn-group" role="group" aria-label="Vertical radio toggle button group">
                         <input type="radio" class="btn-check" name="vbtn-radio" id="reloadAuto" autocomplete="off"
@@ -57,19 +57,19 @@
                 </div>
             </div>
 
-            <div class="row mb-2">
-                <div class="col btn-group ">
+            <div class="row mb-2" style="z-index: 1000;">
+                <div class="col btn-group " style="z-index: 1000;">
                     <button class="btn btn-primary" id="fooba0" onclick="addDays(-30)">Previous Month</button>
                     <button class="btn btn-primary" id="me_when_id" onclick="addDays(-1)">Previous Day</button>
                     <button class="btn btn-primary" id="me_when_id." onclick="addDays(1)">Next Day</button>
                     <button class="btn btn-primary" id="fooba1" onclick="addDays(30)">Next Month</button>
                 </div>
-                <div class="col">
+                <div class="col" style="z-index: 1000;">
                     <input type="datetime-local" class="form-control" id="date" name="date" value="2025-11-29T09:41"
                         min="2023-01-01" max="2025-12-31">
                 </div>
             </div>
-            <div class="row mb-2">
+            <div class="row mb-2" style="z-index: 1000;">
 
                 <div class="col d-flex" style="gap: 2%;">
                     <label class="form-label">Opacity: </label>

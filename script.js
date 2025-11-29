@@ -10,7 +10,7 @@ document.querySelectorAll(".changes-map-mode").forEach(el => {
 const layerTypes = {
   lake_ice: 'eo:EO_MR_VIIRS_LIE',
   snow: 'eo:EO_FSC',
-  rannikko_jarvi: 'eo:EO_SST'
+  rannikko_jarvi: 'eo:EO_MR_SLSTR_SST_SEASONAL_MONTH'
 }
 let selected = "lake_ice"
 
@@ -20,6 +20,7 @@ const reloadAutoCheckBox = document.querySelector("#reloadAuto")
 let map = L.map('map').setView([62.192059, 24.945831], 5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  opacity: 2
 }).addTo(map)
   
 
@@ -39,11 +40,12 @@ let wmsLayer
 function reloadData(layerType) {
   if (wmsLayer) wmsLayer.removeFrom(map)
   wmsLayer = L.tileLayer.wms(url, {
-    layers: layerTypes[layerType || selected]
+    layers: layerTypes[layerType || selected],
+    opacity: 0.7
   }).addTo(map)
   if (layerType) selected = layerType
   console.log(selected)
-}
+} 
 reloadData()
 function addDays(amount) {
   currentDate += 1000 * 3600 * 24 * amount;
