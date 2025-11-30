@@ -17,7 +17,7 @@ let selected = "lake_ice"
 let url = `https://geoserver2.ymparisto.fi/geoserver/eo/wms?time=${currentDate}`
 const reloadAutoCheckBox = document.querySelector("#reloadAuto")
 
-let map = L.map('map').setView([62.192059, 24.945831], 5);
+let map = L.map('map').setView([50, 20], 4);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   opacity: 2
