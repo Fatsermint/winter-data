@@ -43,27 +43,14 @@
                 <div class="col" style="z-index: 1000;">
                     <button class="btn btn-success" onclick="reloadData()">Reload Data</button>
                 </div>
-                    <div class="col mb-2">
-                        <span class="fs-5 ">Auto Reload</span>
-                        <div class="btn-group" role="group" aria-label="Vertical radio toggle button group">
-                            <input type="radio" class="btn-check" name="vbtn-radio" id="reloadAuto" autocomplete="off"
-                                checked>
-                            <label class="btn btn-outline-success" for="reloadAuto">Yes</label>
-                            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="vbtn-radio3">No</label>
-                        </div>
-                    </div>
-                <div class="row mb-2" style="z-index: 1000;">
-
-                    <div class="col">
-                        <span class="fs-5 "> Transparent</span>
-                        <div id="transparentdiv" class="btn-group" role="group" aria-label="Vertical radio toggle button group">
-                            <input type="radio" class="btn-check" name="transparency" id="transparent"
-                                autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="transparent">Yes</label>
-                            <input type="radio" class="btn-check" name="transparency" id="opaque" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="opaque">No</label>
-                        </div>
+                <div class="col mb-2">
+                    <span class="fs-5 ">Auto Reload</span>
+                    <div class="btn-group" role="group" aria-label="Vertical radio toggle button group">
+                        <input type="radio" class="btn-check" name="vbtn-radio" id="reloadAuto" autocomplete="off"
+                            checked>
+                        <label class="btn btn-outline-success" for="reloadAuto">Yes</label>
+                        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="vbtn-radio3">No</label>
                     </div>
                 </div>
 
@@ -80,7 +67,17 @@
                     </div>
                 </div>
                 <div class="row mb-2" style="z-index: 1000;">
-
+                    <div class="col">
+                        <span class="fs-5 "> Transparent</span>
+                        <div id="transparentdiv" class="btn-group" role="group"
+                            aria-label="Vertical radio toggle button group">
+                            <input type="radio" class="btn-check" name="transparency" id="transparent"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-success" for="transparent">Yes</label>
+                            <input type="radio" class="btn-check" name="transparency" id="opaque" autocomplete="off">
+                            <label class="btn btn-outline-danger" for="opaque">No</label>
+                        </div>
+                    </div>
                     <div class="col d-flex" style="gap: 2%;">
                         <label class="form-label">Opacity: </label>
                         <input class="form-range" type="range" step="1" max="100" min="10" value="70" id="opacity"
@@ -88,6 +85,7 @@
                         <output id="opacityValue"></output>
 
                     </div>
+
                 </div>
 
             </div>
