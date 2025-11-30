@@ -22,7 +22,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   opacity: 2
 }).addTo(map)
-  
+
 
 
 const dateSelector = document.querySelector("#date")
@@ -37,10 +37,10 @@ dateSelector.addEventListener("input", (event) => {
 });
 let transparentValue = true
 const transparent = document.querySelector("#transparent")
-document.querySelector("#transparentdiv").addEventListener("change", (event) =>{
-  if (transparent.checked){
+document.querySelector("#transparentdiv").addEventListener("change", (event) => {
+  if (transparent.checked) {
     transparentValue = true
-  }else{
+  } else {
     transparentValue = false
 
   }
@@ -58,17 +58,30 @@ function reloadData(layerType) {
     transparent: transparentValue
   }).addTo(map)
   if (layerType) selected = layerType
-  console.log(selected) 
-} 
+  console.log(selected)
+  if (selected == "rannikko_jarvi"){
+    currentDate = new Date(currentDate).setDate(1)
+    console.log(currentDate)
+    dateSelector.value = new Date(currentDate).toISOString().substring(0, 16)
+    console.log(currentDate)
+    
+  }
+}
 reloadData()
 function addDays(amount) {
-  
-  currentDate += 1000 * 3600 * 24 * amount;
+    const prevDate = new Date(currentDate)
+  console.log(currentDate)
+  if (Math.abs(amount) == 30) {
+    prevDate.setMonth((prevDate.getMonth() + Math.sign(amount)) % 12)
+    currentDate = prevDate.getTime()
+  } else {
+    currentDate += 1000 * 3600 * 24 * amount;
+  }
+  console.log(currentDate)
+
   dateSelector.value = new Date(currentDate).toISOString().substring(0, 16)
 
-  console.log(dateSelector.value)
   url = `https://geoserver2.ymparisto.fi/geoserver/eo/wms?time=${new Date(currentDate).toISOString().substring(0, 10)}`
-  console.log(new Date(currentDate).toISOString().substring(0, 16))
   if (reloadAutoCheckBox.checked) {
     reloadData()
   };
