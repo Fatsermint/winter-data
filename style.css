@@ -8,8 +8,13 @@ body{
 h1{
     z-index: 100;
 }
-.leaflet-tile{
-    mix-blend-mode:multiply;
+
+#itameri{
+  background-color:linear-gradient(to bottom, red, yellow)
+
+}
+#grad-img{
+  margin-top: 1000vh;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Merienda+One");

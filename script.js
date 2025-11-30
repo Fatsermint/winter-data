@@ -12,7 +12,7 @@ const layerTypes = {
   snow: 'eo:EO_FSC',
   rannikko_jarvi: 'eo:EO_MR_SLSTR_SST_SEASONAL_MONTH'
 }
-let selected = "lake_ice"
+let selected = "rannikko_jarvi"
 
 let url = `https://geoserver2.ymparisto.fi/geoserver/eo/wms?time=${currentDate}`
 const reloadAutoCheckBox = document.querySelector("#reloadAuto")
@@ -61,10 +61,21 @@ function reloadData(layerType) {
   console.log(selected)
   if (selected == "rannikko_jarvi"){
     currentDate = new Date(currentDate).setDate(1)
-    console.log(currentDate)
     dateSelector.value = new Date(currentDate).toISOString().substring(0, 16)
-    console.log(currentDate)
-    
+    document.querySelector("#snowAll").hidden = true
+    document.querySelector("#lakeIceAll").hidden = true
+    document.querySelector("#Itameri").hidden = false
+
+  }
+  if (selected == "snow"){
+    document.querySelector("#snowAll").hidden = false
+    document.querySelector("#lakeIceAll").hidden = true
+    document.querySelector("#Itameri").hidden = true
+  }
+  if (selected == "lake_ice"){
+    document.querySelector("#snowAll").hidden = true
+    document.querySelector("#lakeIceAll").hidden = false
+    document.querySelector("#Itameri").hidden = true
   }
 }
 reloadData()
@@ -114,3 +125,4 @@ input.addEventListener("input", (event) => {
 //var wmsLayer = L.tileLayer.wms(url, {
 //  layers: 'eo:EO_FSC'
 //}).addTo(map);
+reloadData()
