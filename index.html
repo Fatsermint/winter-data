@@ -17,25 +17,23 @@
 
 <body>
     <div class="more-snow"></div>
-    <div class="container bg-white rounded-4 ">
-        <div class=" my-5 p-2   text-center" style="z-index: 1000;" >
+    <div id="everything" class="container bg-white rounded-4 ">
+        <div class=" my-5 p-2   text-center" style="z-index: 1000;">
             <h1>Winter Data</h1>
         </div>
         <div class="col" style="gap: 5%;">
-
-
-            <div class="row mb-2"style="z-index: 1000;">
+            <div class="row mb-2" style="z-index: 1000;">
                 <div class="col">
                     <div class="dropdown" style="z-index: 1200;">
-                        <button class=" btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button id="selectButton" class=" btn btn-secondary dropdown-toggle " type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Select Data
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item changes-map-mode" data-mode="lake_ice">Lake Ice</a></li>
                             <li><a class="dropdown-item changes-map-mode" data-mode="snow">Snow</a></li>
-                            <li><a class="dropdown-item changes-map-mode" data-mode="rannikko_jarvi">Finlands lakes and
-                                    coast</a>
+                            <li><a class="dropdown-item changes-map-mode" data-mode="rannikko_jarvi">Baltic Sea
+                                    Region</a>
                             </li>
                         </ul>
                     </div>
@@ -43,53 +41,64 @@
 
                 <div class="col" style="z-index: 1000;">
                     <button class="btn btn-success" onclick="reloadData()">Reload Data</button>
-
                 </div>
-                <div class="col " style="z-index: 1000; ;">
-                    <span class="fs-5 ">Auto Reload</span>
-                    <div class="btn-group" role="group" aria-label="Vertical radio toggle button group">
-                        <input type="radio" class="btn-check" name="vbtn-radio" id="reloadAuto" autocomplete="off"
-                            checked>
-                        <label class="btn btn-outline-success" for="reloadAuto">Yes</label>
-                        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="vbtn-radio3">No</label>
+                    <div class="col mb-2">
+                        <span class="fs-5 ">Auto Reload</span>
+                        <div class="btn-group" role="group" aria-label="Vertical radio toggle button group">
+                            <input type="radio" class="btn-check" name="vbtn-radio" id="reloadAuto" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-success" for="reloadAuto">Yes</label>
+                            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                            <label class="btn btn-outline-danger" for="vbtn-radio3">No</label>
+                        </div>
+                    </div>
+                <div class="row mb-2" style="z-index: 1000;">
+
+                    <div class="col">
+                        <span class="fs-5 "> Transparent</span>
+                        <div id="transparentdiv" class="btn-group" role="group" aria-label="Vertical radio toggle button group">
+                            <input type="radio" class="btn-check" name="transparency" id="transparent"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-success" for="transparent">Yes</label>
+                            <input type="radio" class="btn-check" name="transparency" id="opaque" autocomplete="off">
+                            <label class="btn btn-outline-danger" for="opaque">No</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row mb-2" style="z-index: 1000;">
-                <div class="col btn-group " style="z-index: 1000;">
-                    <button class="btn btn-primary" id="fooba0" onclick="addDays(-30)">Previous Month</button>
-                    <button class="btn btn-primary" id="me_when_id" onclick="addDays(-1)">Previous Day</button>
-                    <button class="btn btn-primary" id="me_when_id." onclick="addDays(1)">Next Day</button>
-                    <button class="btn btn-primary" id="fooba1" onclick="addDays(30)">Next Month</button>
+                <div class="row mb-2" style="z-index: 1000;">
+                    <div class="col btn-group " style="z-index: 1000;">
+                        <button class="btn btn-primary" id="fooba0" onclick="addDays(-30)">Previous Month</button>
+                        <button class="btn btn-primary" id="me_when_id" onclick="addDays(-1)">Previous Day</button>
+                        <button class="btn btn-primary" id="me_when_id." onclick="addDays(1)">Next Day</button>
+                        <button class="btn btn-primary" id="fooba1" onclick="addDays(30)">Next Month</button>
+                    </div>
+                    <div class="col" style="z-index: 1000;">
+                        <input type="datetime-local" class="form-control" id="date" name="date" value="2025-11-29T09:41"
+                            min="2023-01-01" max="2025-12-31">
+                    </div>
                 </div>
-                <div class="col" style="z-index: 1000;">
-                    <input type="datetime-local" class="form-control" id="date" name="date" value="2025-11-29T09:41"
-                        min="2023-01-01" max="2025-12-31">
-                </div>
-            </div>
-            <div class="row mb-2" style="z-index: 1000;">
+                <div class="row mb-2" style="z-index: 1000;">
 
-                <div class="col d-flex" style="gap: 2%;">
-                    <label class="form-label">Opacity: </label>
-                    <input class="form-range" type="range" step="1" max="100" min="10" value="70" id="opacity"
-                        name="opacity">
-                    <output id="opacityValue"></output>
+                    <div class="col d-flex" style="gap: 2%;">
+                        <label class="form-label">Opacity: </label>
+                        <input class="form-range" type="range" step="1" max="100" min="10" value="70" id="opacity"
+                            name="opacity">
+                        <output id="opacityValue"></output>
 
+                    </div>
                 </div>
+
             </div>
+            <div id="map" class="rounded-4"></div>
 
         </div>
-        <div id="map"></div>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="script.js"></script>
 </body>
 
 </html>

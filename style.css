@@ -1,4 +1,4 @@
-#map { height: 60em; }
+#map { height: 90em; }
 #map { width: 100%; }
 
 body{
@@ -25,6 +25,7 @@ body,
 .more-snow {
   &:before,
   &:after {
+    
     content: "";
     position: fixed;
     top: -3000%;
@@ -34,7 +35,7 @@ body,
     background-color: rgba(black, 0.01);
     background-image: url(http://www.freepngimg.com/download/winter_snow/4-2-white-snow-png.png);
     background-size: 30%;
-    z-index: 120;
+    z-index: -120;
     -webkit-animation-name: MOVE-BG;
     -webkit-animation-duration: 500s;
 
@@ -73,6 +74,6 @@ body {
     transform: translateY(70%);
   }
 }
-#map{
-
+#everything{
+    z-index: 1000;
 }

@@ -35,19 +35,33 @@ dateSelector.addEventListener("input", (event) => {
     reloadData()
   };
 });
+let transparentValue = true
+const transparent = document.querySelector("#transparent")
+document.querySelector("#transparentdiv").addEventListener("change", (event) =>{
+  if (transparent.checked){
+    transparentValue = true
+  }else{
+    transparentValue = false
 
+  }
+  console.log(transparentValue)
+});
+const selectButton = document.getElementById("selectButton")
 let wmsLayer
 function reloadData(layerType) {
   if (wmsLayer) wmsLayer.removeFrom(map)
   wmsLayer = L.tileLayer.wms(url, {
     layers: layerTypes[layerType || selected],
-    opacity: 0.7
+    opacity: 1,
+    format: "image/png",
+    transparent: transparentValue
   }).addTo(map)
   if (layerType) selected = layerType
-  console.log(selected)
+  console.log(selected) 
 } 
 reloadData()
 function addDays(amount) {
+  
   currentDate += 1000 * 3600 * 24 * amount;
   dateSelector.value = new Date(currentDate).toISOString().substring(0, 16)
 
