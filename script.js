@@ -44,6 +44,7 @@ document.querySelector("#transparentdiv").addEventListener("change", (event) =>{
     transparentValue = false
 
   }
+  reloadData()
   console.log(transparentValue)
 });
 const selectButton = document.getElementById("selectButton")
